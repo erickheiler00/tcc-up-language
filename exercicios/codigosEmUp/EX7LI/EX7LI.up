@@ -1,0 +1,47 @@
+fun tokenizacao(string expressao) -> list
+    list lista_tokens = []
+    string nova_expressao = ""
+    string num = ""
+    string caractere_ant = ""
+
+    for caractere in expressao do
+        if caractere != " " then
+            nova_expressao = nova_expressao + caractere		
+        endif
+    endfor
+
+    for caractere in nova_expressao do
+        if caractere == "(" or caractere == ")" or caractere == "*" or caractere == "/" or caractere == "^" then
+            if num != "" then
+                lista_tokens + num
+                num = ""
+            endif
+            lista_tokens + caractere
+        elif caractere == "+" or caractere == "-" and is_digit(caractere_ant) or caractere_ant == ")" then
+            if is_digit(caractere_ant) or caractere_ant == ")" then
+                if num != "" then
+                    lista_tokens + num
+                    num = ""
+                endif
+                lista_tokens + caractere
+            endif
+        else 
+            num = num + caractere
+        endif
+        caractere_ant = caractere
+    endfor
+	
+    if num != "" then
+        lista_tokens + num
+    endif
+	
+    return lista_tokens
+endfun
+
+fun main() -> void
+    string expressao = input("Digite uma expressão matematica: ")
+    list lista_tokens = tokenizacao(expressao)
+    print(lista_tokens)
+endfun
+
+main()

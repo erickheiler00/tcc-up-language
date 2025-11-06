@@ -1,0 +1,18 @@
+fun exibir_invertido(int n) -> void
+    if n == 0 then
+        return 
+    endif
+
+    int numero = input_int()
+    exibir_invertido(n - 1)
+    print(numero)
+endfun
+
+fun main() -> void
+    int n = input_int("Quantos números voce deseja informar? ")
+	
+    print("Digite os números e veja-os na ordem inversa:")
+    exibir_invertido(n)
+endfun
+
+main()

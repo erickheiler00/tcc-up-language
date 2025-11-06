@@ -1,0 +1,22 @@
+int a = input_int("Digite o primeiro número: ")
+int b = input_int("Digite o segundo número: ")
+int c = input_int("Digite o terceiro número: ")
+
+if a <= b and b <= c then
+    print("Números em ordem crescente: ", a, " ", b, " ", c)
+
+elif a <= c and c <= b then
+    print("Números em ordem crescente: ", a, " ", c, " ", b)
+
+elif b <= c and c <= a then
+    print("Números em ordem crescente: ", b, " ", c, " ", a)
+
+elif c <= a and a <= b then
+    print("Números em ordem crescente: ", c, " ", a, " ", b)
+    
+elif c <= b and b <= a then
+    print("Números em ordem crescente: ", c, " ", b, " ", a)
+
+else
+    print("Números em ordem crescente: ", b, " ", a, " ", c)
+endif

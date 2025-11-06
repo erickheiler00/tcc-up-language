@@ -1,0 +1,18 @@
+list a = []
+int i = 0
+
+while i < 10 do 
+    i = i + 1 
+
+    if i == 4 then 
+        continue 
+    endif
+    
+    if i == 8 then 
+        break 
+    endif
+    
+    a = a + i 
+endwhile
+
+print(a)

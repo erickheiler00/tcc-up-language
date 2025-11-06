@@ -1,0 +1,18 @@
+fun divisores(int num) -> list
+    list lista_divisores = []
+    for i = 1 to num do
+        if num % i == 0 then
+            lista_divisores + i
+        endif
+    endfor
+    return lista_divisores
+endfun
+
+fun main() -> void
+    int num = input_int("Digite um número para saber seus divisores: ")
+
+    list lista_divisores = divisores(num)
+    print("Os divisores do numero ", num, " são: ", lista_divisores)
+endfun
+
+main()

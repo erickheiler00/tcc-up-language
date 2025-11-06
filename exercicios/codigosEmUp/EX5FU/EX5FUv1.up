@@ -1,0 +1,62 @@
+# Primeiro número
+int num = input_int("Digite o 1º número inteiro positivo: ")
+list binario = []
+	
+if num == 0 then
+    print("Binário: 0")
+else
+    while num > 0 do
+        binario + num % 2
+        num = num // 2
+    endwhile
+
+    print_inline("Binário: ")
+
+    for i = len(binario)-1 to -1 step -1 do 
+        print_inline(binario/i)
+    endfor
+
+    print()
+endif
+
+# Segundo número
+int num = input_int("Digite o 2º número inteiro positivo: ")
+list binario = []
+	
+if num == 0 then
+    print("Binário: 0")
+else
+    while num > 0 do
+        binario + num%2 
+        num = num // 2
+    endwhile
+
+    print_inline("Binário: ")
+
+    for i = len(binario)-1 to -1 step -1 do 
+        print_inline(binario/i)
+    endfor
+
+    print()
+endif
+
+# Terceiro número
+int num = input_int("Digite o 3º número inteiro positivo: ")
+list binario = []
+	
+if num == 0 then
+    print("Binário: 0")
+else
+    while num > 0 do
+        binario + num%2
+        num = num // 2
+    endwhile
+
+    print_inline("Binário: ")
+	
+    for i = len(binario)-1 to -1 step -1 do 
+        print_inline(binario/i)
+    endfor
+	
+    print()
+endif

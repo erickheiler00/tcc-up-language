@@ -1,0 +1,20 @@
+float valor = float soma = float media = 0.0
+int i = 0
+
+while true do 
+    valor = input_float("Digite um valor (0 para parar): ")
+
+    if valor == 0 then
+        break
+    endif
+
+    soma = soma + valor
+    i = i + 1
+endwhile    
+
+if i != 0 then
+    media = soma / i
+    print("A média aritmética dos valores fornecidos é igual a ", media)
+else 
+    print("Erro: é necessário informar pelo menos um valor válido para calcular a média.")
+endif

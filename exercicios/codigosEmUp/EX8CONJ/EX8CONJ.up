@@ -1,0 +1,21 @@
+fun letras_unicas(string palavra) -> boolean
+    list caracteres_vistos = []
+	
+    for caractere in palavra do
+        if caractere in caracteres_vistos then
+            return false
+        else 
+            caracteres_vistos + caractere
+        endif
+    endfor
+	
+    return true
+endfun
+
+fun main() -> void
+    string palavra = input("Digite uma palavra: ")
+
+    print(letras_unicas(palavra))
+endfun
+
+main()

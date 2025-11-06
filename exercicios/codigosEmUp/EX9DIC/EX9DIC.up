@@ -1,0 +1,38 @@
+fun buscaReversa(list chaves, list valores , string valor_buscado) -> list
+    list chaves_encontradas = []	
+
+    for i = 0 to len(chaves) do
+        if valores / i == valor_buscado then
+            chaves_encontradas + chaves / i
+        endif
+    endfor
+
+    return chaves_encontradas
+endfun
+
+fun main() -> void
+    list chaves = []
+    list valores = []
+    boolean continuar = true
+
+    while continuar do
+        string chave = input("Digite uma chave para ser armazenada no dicionário (enter para parar): ")
+        if chave == "" then
+            continuar = false
+            break
+        endif
+
+        string valor = input("Digite um valor para ser armazenado no dicionário: ")
+
+        chaves + chave
+        valores + valor
+    endwhile
+	
+    string valor_buscado = input("\nPor fim, digite um valor a ser buscado: ")
+	
+    list chaves_encontradas = buscaReversa(chaves, valores, valor_buscado)
+    print("\nChaves que possuem o valor buscado:")
+    print(chaves_encontradas)
+endfun
+
+main()

@@ -1,0 +1,18 @@
+int a = input_int("Digite o valor de A: ")
+int b = input_int("Digite o valor de B: ")
+
+int soma = a + b
+int diferenca = a - b
+int produto = a * b
+float quociente = a / b
+int resto = a % b
+float logaritmo = log10(a)
+int potencia = a ^ b
+
+print("soma de A e B: ", soma)
+print("diferença de A e B: ", diferenca)
+print("produto de A por B: ", produto)
+print("quociente de A por B: ", quociente)
+print("resto da divisão de A por B: ", resto)
+print("log10(A): ", logaritmo)
+print("resultado de A elevado a B: ", potencia)

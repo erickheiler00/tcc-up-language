@@ -1,0 +1,10 @@
+for c = 0 to 101 do
+    if c == 0 then
+        print("Celsius Fahrenheit")
+    endif    
+
+    if c % 10 == 0 then
+        float f = (c * 1.8) + 32
+        print(c, "\t", f)
+    endif
+endfor

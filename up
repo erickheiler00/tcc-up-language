@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+import sys
+from core.lexer.lexer import Lexer
+from core.lexer.tokens import *
+from up import run
+
+class Colors:
+    KEYWORD = '\033[94m'      # Azul
+    NUMBER = '\033[92m'       # Verde
+    STRING = '\033[93m'       # Amarelo
+    FUNCTION = '\033[95m'     # Magenta
+    COMMENT = '\033[90m'      # Cinza
+    RESET = '\033[0m'         # Reset
+
+def colorize_code(fn, text):
+    lexer = Lexer(fn, text)
+    tokens, error = lexer.make_tokens()
+    
+    if error:
+        return text
+    
+    colored_output = ""
+    for token in tokens:
+        if token.type == TT_KEYWORD and token.value in KEYWORDS:
+            colored_output += f"{Colors.KEYWORD}{token.value}{Colors.RESET} "
+        elif token.type == TT_KEYWORD and isinstance(token.value, (int, float)):
+            colored_output += f"{Colors.NUMBER}{token.value}{Colors.RESET} "
+        elif token.type == TT_KEYWORD and isinstance(token.value, tuple) and token.value[0] == 'string_literal':
+            colored_output += f"{Colors.STRING}\"{token.value[1]}\"{Colors.RESET} "
+        elif token.type == TT_IDENTIFIER:
+            colored_output += f"{Colors.FUNCTION}{token.value}{Colors.RESET} "
+        elif token.type == TT_NEWLINE:
+            colored_output += "\n"
+        elif token.type == TT_EOF:
+            break
+        else:
+            colored_output += str(token.value) if token.value else str(token.type)
+    
+    return colored_output
+
+if len(sys.argv) < 2:
+    print("Usage: up <filename>")
+    sys.exit(1)
+
+fn = sys.argv[1]
+with open(fn, 'r') as f:
+    script = f.read()
+
+result, error = run(fn, script)
+
+if error:
+    print(error.as_string())
+else:
+    if result is not None:
+        print(result)

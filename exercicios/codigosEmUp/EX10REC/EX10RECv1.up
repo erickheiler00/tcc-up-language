@@ -1,0 +1,18 @@
+fun main() -> void
+    int n = input_int("Quantos números voce deseja informar? ")
+
+    list numeros = []
+
+    print("Digite os numeros:")
+    for i = 0 to n do
+        int numero = input_int()
+        numeros + numero
+    endfor
+
+    print("\nOrdem inversa:")
+    for i = n-1 to -1 step -1 do
+        print(numeros/i)
+    endfor
+endfun
+
+main() 

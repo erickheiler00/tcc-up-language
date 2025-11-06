@@ -1,0 +1,39 @@
+fun dade(string prefix) -> string return prefix + "dade"
+
+fun join(list elements, string separator) -> string
+    string result = ""
+    int len = len(elements)
+
+    for i = 0 to len do
+        result = result + elements/i
+        if i != len -1 then 
+            result = result + separator
+        endif
+    endfor
+  
+    return result
+endfun
+
+fun map(list elements, function func) -> list
+    list new_elements = []
+
+    for i = 0 to len(elements) do 
+        append(new_elements, func(elements/i))
+    endfor
+
+    return new_elements
+endfun
+
+print("Hello World!")
+
+for i = 0 to 5 do
+    print(join(map(["i", "ci"], dade), ", "))
+endfor
+
+# --------------------------------------------------------------------------------------------------------
+
+# Aplica a função map à lista ["i", "ci"] usando a função dade. 
+# Isso resulta na lista ["idade", "cidade"].
+
+# Usa a função join para unir os elementos da lista resultante com uma vírgula e um espaço como separador. 
+# Isso resulta na string "idade, cidade".
