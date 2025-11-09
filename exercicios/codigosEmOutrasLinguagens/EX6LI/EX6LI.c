@@ -2,7 +2,7 @@
 
 int divisores(int num, int lista_divisores[]) {
     int contador = 0;
-    for (int i = 1; i < num; i++) {
+    for (int i = 1; i < num+1; i++) {
         if (num % i == 0) {
             lista_divisores[contador] = i;
             contador++;

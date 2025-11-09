@@ -1,6 +1,6 @@
 fun divisores(int num) -> list
     list lista_divisores = []
-    for i = 1 to num do
+    for i = 1 to num+1 do
         if num % i == 0 then
             lista_divisores + i
         endif
