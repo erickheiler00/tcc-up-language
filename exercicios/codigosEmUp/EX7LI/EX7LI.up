@@ -17,7 +17,7 @@ fun tokenizacao(string expressao) -> list
                 num = ""
             endif
             lista_tokens + caractere
-        elif caractere == "+" or caractere == "-" and is_digit(caractere_ant) or caractere_ant == ")" then
+        elif (caractere == "+" or caractere == "-") and (is_digit(caractere_ant) or caractere_ant == ")") then
             if is_digit(caractere_ant) or caractere_ant == ")" then
                 if num != "" then
                     lista_tokens + num

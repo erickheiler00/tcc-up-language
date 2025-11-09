@@ -14,7 +14,7 @@ def tokenizacao(expressao):
                 lista_tokens.append(num)
                 num = ""
             lista_tokens.append(caractere)
-        elif caractere == "+" or caractere == "-" and caractere_ant.isdigit() or caractere_ant == ")":
+        elif (caractere == "+" or caractere == "-") and (caractere_ant.isdigit() or caractere_ant == ")"):
             if caractere_ant.isdigit() or caractere_ant == ")":
                 if num != "":
                     lista_tokens.append(num)

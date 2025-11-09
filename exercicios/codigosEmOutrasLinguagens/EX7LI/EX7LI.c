@@ -6,10 +6,9 @@ void tokenizacao(char expressao[], char lista_tokens[][50], int *qtd_tokens) {
     char nova_expressao[200] = "";
     char num[50] = "";
     char caractere_ant = '\0';
-    int i = 0;
     int tamanho = strlen(expressao);
     
-    for (i = 0; i < tamanho; i++) {
+    for (int i = 0; i < tamanho; i++) {
         if (expressao[i] != ' ') {
             int len = strlen(nova_expressao);
             nova_expressao[len] = expressao[i];
@@ -20,7 +19,7 @@ void tokenizacao(char expressao[], char lista_tokens[][50], int *qtd_tokens) {
     tamanho = strlen(nova_expressao);
     
     *qtd_tokens = 0;
-    for (i = 0; i < tamanho; i++) {
+    for (int i = 0; i < tamanho; i++) {
         char caractere = nova_expressao[i];
         
         if (caractere == '(' || caractere == ')' || caractere == '*' || caractere == '/' || caractere == '^') {
@@ -33,7 +32,7 @@ void tokenizacao(char expressao[], char lista_tokens[][50], int *qtd_tokens) {
             lista_tokens[*qtd_tokens][1] = '\0';
             (*qtd_tokens)++;
         } 
-        else if (caractere == '+' || (caractere == '-' && (isdigit(caractere_ant) || caractere_ant == ')'))) {
+        else if ((caractere == '+' || caractere == '-') && (isdigit(caractere_ant) || caractere_ant == ')')) {
             if (isdigit(caractere_ant) || caractere_ant == ')') {
                 if (strlen(num) != 0) {
                     strcpy(lista_tokens[*qtd_tokens], num);

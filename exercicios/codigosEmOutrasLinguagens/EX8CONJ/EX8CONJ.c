@@ -15,6 +15,7 @@ bool letras_unicas(char palavra[]) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -24,11 +25,7 @@ int main() {
     printf("Digite uma palavra: ");
     scanf("%s", palavra);
 
-    if (letras_unicas(palavra)) {
-        printf("True\n");
-    } else {
-        printf("False\n");
-    }
+    printf("%s\n", letras_unicas(palavra) ? "True" : "False");
 
     return 0;
 }

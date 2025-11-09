@@ -5,7 +5,6 @@
 
 void buscaReversa(char chaves[MAX_SIZE][MAX_SIZE], char valores[MAX_SIZE][MAX_SIZE], int tamanho, char valor_buscado[MAX_SIZE]) {
     int i;
-    printf("\nChaves que possuem o valor buscado '%s':\n", valor_buscado);
     
     for (i = 0; i < tamanho; i++) {
         if (strcmp(valores[i], valor_buscado) == 0) {
@@ -17,9 +16,8 @@ void buscaReversa(char chaves[MAX_SIZE][MAX_SIZE], char valores[MAX_SIZE][MAX_SI
 int main() {
     char chaves[MAX_SIZE][MAX_SIZE];
     char valores[MAX_SIZE][MAX_SIZE];
-    int tamanho = 0;
-    
     char chave[MAX_SIZE], valor[MAX_SIZE];
+    int tamanho = 0;
     
     while (1) {
         printf("Digite uma chave para ser armazenada no dicionário (enter para parar): ");
@@ -42,6 +40,7 @@ int main() {
     fgets(valor_buscado, MAX_SIZE, stdin);
     valor_buscado[strcspn(valor_buscado, "\n")] = 0; 
     
+    printf("\nChaves que possuem o valor buscado '%s':\n", valor_buscado);
     buscaReversa(chaves, valores, tamanho, valor_buscado);
     
     return 0;
