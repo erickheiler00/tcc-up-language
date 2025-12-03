@@ -1,0 +1,69 @@
+statements  : NEWLINE* statement (NEWLINE+ statement)* NEWLINE*
+
+statement   : KEYWORD:return expr?
+            : KEYWORD:continue
+            : KEYWORD:break
+            : expr
+
+expr        : (KEYWORD:int|KEYWORD:float|KEYWORD:string|KEYWORD:boolean) IDENTIFIER EQ expr
+            : comp-expr ((KEYWORD:and|KEYWORD:or) comp-expr)*
+            
+comp-expr   : not comp-expr
+            : arith-expr ((EE|LT|GT|LTE|GTE) arith-expr)*    
+
+arith-expr  : term ((PLUS|MINUS) term)*
+
+term        : factor ((MUL|DIV) factor)*
+
+factor      : (PLUS|MINUS) factor
+            : power
+
+power       : call (POW factor)*
+
+call        : atom (LPAREN (expr (COMMA expr)*)? RPAREN)?
+
+atom        : int|float|string|true|false|IDENTIFIER
+            : LPAREN expr RPAREN
+            : list-expr
+            : if-expr
+            : for-expr
+            : while-expr
+            : func-def
+        
+list_expr   : LSQUARE (expr (COMMA expr)*)? RSQUARE  
+
+if-expr     : KEYWORD:if expr KEYWORD:then
+              (statement if-expr-b|if-expr-c?)
+              (NEWLINE statements KEYWORD:endif|if-expr-b|if-expr-c) 
+
+if-expr-b   : KEYWORD:elif expr KEYWORD:then
+              (statement if-expr-b|if-expr-c?)
+              (NEWLINE statements KEYWORD:endif|if-expr-b|if-expr-c)     
+
+if-expr-c   : KEYWORD:else
+              statement
+              (NEWLINE statements KEYWORD:endif)
+
+for-expr    : KEYWORD:for IDENTIFIER EQ expr KEYWORD:to expr
+              (KEYWORD:step expr)? KEYWORD:do 
+              statement
+              (NEWLINE statements KEYWORD:endfor)
+        
+while-expr  : KEYWORD:while expr KEYWORD:do
+              statement
+              (NEWLINE statements KEYWORD:endwhile)
+
+func-def    : KEYWORD:fun IDENTIFIER?
+              LPAREN ((KEYWORD:int|KEYWORD:float|KEYWORD:string|KEYWORD:boolean) IDENTIFIER (COMMA IDENTIFIER)*)? RPAREN
+              (ARROW expr)
+              (NEWLINE (KEYWORD:int|KEYWORD:float|KEYWORD:string|KEYWORD:boolean) KEYWORD:return statements KEYWORD:endfun)
+
+---------------------------------------
+OBS: 
+    + indica um ou mais
+    * indica zero ou mais
+    ? indica que a expresão anterior é opcional
+
+Ordem de prioridade (maior para o menor):
+factor, term, expr
+lparen/rparen, plus/minus, int/float, mul/div, plus/minus

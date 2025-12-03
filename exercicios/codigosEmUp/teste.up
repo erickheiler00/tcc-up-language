@@ -1,5 +1,0 @@
-print("Primeiro texto - ")
-print("Segundo texto\n")
-
-print_inline("Primeiro texto - ")
-print("Segundo texto\n")
