@@ -1,5 +1,5 @@
-from core.lexer.lexer import *
-from core.lexer.tokens import *
+from core.scanner.scanner import *
+from core.scanner.tokens import *
 from core.interpreter.context import *
 from core.interpreter.symbolTable import *
 from core.errors.errors import *

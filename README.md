@@ -11,7 +11,7 @@ A **Linguagem de programação UP** foi criada com foco em legibilidade e facili
 ## Estrutura do Projeto
 ```
 Up/
-├── core/           # Núcleo da linguagem (lexer, parser, interpreter)
+├── core/           # Núcleo da linguagem (scanner, parser, interpreter)
 ├── exercicios/     # Exemplos e exercícios em UP, C e Python
 ├── gramatica/      # Especificação da gramática
 ├── editor.py       # Editor gráfico 

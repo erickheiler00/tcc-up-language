@@ -3,7 +3,7 @@
 ####################################
 
 from strings_with_arrows import *
-from core.lexer.lexer import *
+from core.scanner.scanner import *
 from core.parser.parser import *
 from core.interpreter.interpreter import *
 from core.interpreter.symbolTable import *
@@ -347,8 +347,8 @@ global_symbol_table.set("log10", BuiltInFunction.log10)
 # Funcao de execucao
 def run(fn, text):
     # Gerando os tokens
-    lexer = Lexer(fn, text)                        # Nova instancia do analisador lexico
-    tokens, error = lexer.make_tokens()
+    scanner = Scanner(fn, text)                        # Nova instancia do analisador lexico
+    tokens, error = scanner.make_tokens()
     if error: return None, error                   # Verificando se houve algum erro antes de gerarmos a AST
     
     # Gerando a AST (Arvore Sintatica Abstrata)

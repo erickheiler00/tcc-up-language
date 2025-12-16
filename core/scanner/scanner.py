@@ -1,9 +1,9 @@
-# Lexer
+# Scanner
 from strings_with_arrows import *
-from core.lexer.tokens import *
+from core.scanner.tokens import *
 from core.errors.errors import *
 
-class Lexer:
+class Scanner:
     def __init__(self, fn, text):
         self.fn = fn
         self.text = text

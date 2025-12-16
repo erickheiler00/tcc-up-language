@@ -1,5 +1,5 @@
 from strings_with_arrows import *
-from core.lexer.lexer import *
+from core.scanner.scanner import *
 from core.parser.nodes import *
 from core.parser.parseResult import *
 from core.errors.errors import *
@@ -135,7 +135,7 @@ class Parser:
         res = ParseResult()
         # Lista de tipos suportados
         TYPES = ['int', 'float', 'string', 'boolean', 'list']
-        from core.lexer.tokens import TT_KEYWORD
+        from core.scanner.tokens import TT_KEYWORD
         
         # Verificar se e uma declaracao tipada (tipo + identificador + =)
         if (self.current_tok.type == TT_KEYWORD and self.current_tok.value in TYPES and
@@ -202,8 +202,8 @@ class Parser:
     
     # Funcao para determinar o tipo de uma expressao
     def get_expr_type(self, node):
-        from core.lexer.tokens import TT_KEYWORD
-        from core.lexer.tokens import TT_EE, TT_NE, TT_LT, TT_GT, TT_LTE, TT_GTE, TT_PLUS, TT_MINUS
+        from core.scanner.tokens import TT_KEYWORD
+        from core.scanner.tokens import TT_EE, TT_NE, TT_LT, TT_GT, TT_LTE, TT_GTE, TT_PLUS, TT_MINUS
         from core.parser.nodes import VarAccessNode, IfNode, ForNode, WhileNode, CallNode, ListNode, FuncDefNode
         
         # Se for um token direto (NumberNode, StringNode, etc.)

@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import tkinter.font as tkFont
-from core.lexer.lexer import Lexer
-from core.lexer.tokens import *
+from core.scanner.scanner import Scanner
+from core.scanner.tokens import *
 import sys
 import os
 
@@ -94,8 +94,8 @@ class UpEditor:
         content = self.text_widget.get("1.0", tk.END)
         
         try:
-            lexer = Lexer("editor", content)
-            tokens, error = lexer.make_tokens()
+            scanner = Scanner("editor", content)
+            tokens, error = scanner.make_tokens()
             
             if error:
                 return
