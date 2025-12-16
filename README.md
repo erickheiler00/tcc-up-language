@@ -11,11 +11,36 @@ A **Linguagem de programação UP** foi criada com foco em legibilidade e facili
 ## Estrutura do Projeto
 ```
 Up/
-├── core/           # Núcleo da linguagem (scanner, parser, interpreter)
-├── exercicios/     # Exemplos e exercícios em UP, C e Python
-├── gramatica/      # Especificação da gramática
-├── editor.py       # Editor gráfico 
-├── up.py           # Executador principal
+├── core/                           # Núcleo da linguagem
+│   ├── errors/                     # Tratamento de erros
+│   │   ├── errors.py               # Definições de erros léxicos, sintáticos e semânticos
+│   │   └── runtime.py              # Erros em tempo de execução
+│   │
+│   ├── interpreter/                # Interpretador da linguagem
+│   │   ├── context.py              # Contexto de execução
+│   │   ├── interpreter.py          # Lógica principal do interpretador
+│   │   └── symbolTable.py          # Tabela de símbolos
+│   │
+│   ├── parser/                     # Analisador sintático
+│   │   ├── nodes.py                # Nós da árvore sintática abstrata (AST)
+│   │   ├── parser.py               # Implementação do parser
+│   │   └── parseResult.py          # Resultado do processo de parsing
+│   │
+│   └── scanner/                    # Analisador léxico
+│       ├── scanner.py              # Implementação do scanner
+│       └── tokens.py               # Definição dos tokens
+│
+├── exercicios/                     # Exemplos e exercícios
+│   ├── codigosEmOutrasLinguagens/  # Códigos em Python e C
+│   └── codigosEmUp/                # Códigos escritos em UP
+│
+├── gramatica/                      # Especificação da linguagem
+│   └── grammar.txt                 # Gramática da linguagem UP
+│
+├── editor.py                       # Editor gráfico da linguagem
+├── shell.py                        # Shell interativo (REPL) da UP
+├── strings_with_arrows.py          # Utilitário para destacar erros no código
+├── up.py                           # Executador principal da linguagem
 └── ...
 ```
 
